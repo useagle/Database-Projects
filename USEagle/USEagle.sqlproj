@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>USEagle</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{38b6943d-d6ec-4c27-aeb8-c76f1a31d7fa}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>USEagle</RootNamespace>
+    <AssemblyName>USEagle</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo" />
+    <Folder Include="dbo\Tables" />
+    <Folder Include="dbo\Stored Procedures" />
+    <Folder Include="dbo\Views" />
+    <Folder Include="dbo\Functions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Functions\dbo.USEagle_ufn_ActiveAccountWarnings.sql" />
+    <Build Include="dbo\Functions\dbo.USEagle_ufn_ActiveLoanWarnings.sql" />
+    <Build Include="dbo\Functions\dbo.USEagle_ufn_ActiveShareWarnings.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.USEagle_extract_AverageBalanceSheet.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.USEagle_extract_CPorNSF.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.USEagle_extract_FundsAvailability.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.USEagle_extract_IRAdirectAddressChanges.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.USEagle_extract_MarquisMCIF_AccountTypes.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.USEagle_extract_MarquisMCIF_Branches.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.USEagle_extract_MarquisMCIF_Certificates.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.USEagle_extract_MarquisMCIF_Certificates_AsOfLastMonthEnd.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.USEagle_extract_MarquisMCIF_Checking.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.USEagle_extract_MarquisMCIF_Checking_AsOfLastMonthEnd.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.USEagle_extract_MarquisMCIF_Loans.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.USEagle_extract_MarquisMCIF_Loans_AsOfLastMonthEnd.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.USEagle_extract_MarquisMCIF_Officers.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.USEagle_extract_MarquisMCIF_ProductCodes.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.USEagle_extract_MarquisMCIF_Shares.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.USEagle_extract_MarquisMCIF_Shares_AsOfLastMonthEnd.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.USEagle_extract_Mediastruction_Loans.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.USEagle_extract_Mediastruction_Members.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.USEagle_extract_Mediastruction_Shares.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.USEagle_extract_MemPerx.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.USEagle_extract_Sageworks_Collateral.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.USEagle_extract_Sageworks_Customers.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.USEagle_extract_Sageworks_Deposits.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.USEagle_extract_Sageworks_Loans.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.USEagle_extract_StrategyCorps_Loans.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.USEagle_extract_StrategyCorps_ShareDrafts.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.USEagle_extract_StrategyCorps_Shares.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.USEagle_extract_StrategyCorps_Transactions.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.USEagle_extract_TransactionSurvey.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.USEagle_extract_VoidedBusinessCheckDeposits.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.USEagle_rpt_COM0002_FileMaintenanceByPrivilegeGroup.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.USEagle_rpt_COM0003_CourtesyPayOptInForms.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.USEagle_rpt_COM0004_UserFileMaintenanceByPrivilegeGroup.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.USEagle_rpt_COM0005_EmployeeNegativeAccountActivity.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.USEagle_rpt_FIN00010_MonthOverMonthBalanceSheetExtract.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.USEagle_rpt_LOAN0001_IndirectLoanRelationships.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.USEagle_rpt_MKT0011_TransactionalSurveyReport.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.USEagle_rpt_MKT0011_TransactionalSurveyReport_FromDataWarehouse.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.USEagle_rpt_MKT0014_TransactionSurveyResults.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.USEagle_rpt_PARAM0001_PrivilegeGroupList.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.USEagle_rpt_PARAM0002_ShareReportingPeriod.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.USEagle_rpt_PARAM0003_UserCategory.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.USEagle_rpt_PARAM0004_FMReportingPeriod.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.USEagle_rpt_PARAM0005_OptInCategory.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.USEagle_rpt_PARAM0006_RecentReportDates.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.USEagle_rpt_PARAM0008_TransactionBranches.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.USEagle_rpt_PARAM0009_RequiresFollowUp.sql" />
+  </ItemGroup>
+</Project>

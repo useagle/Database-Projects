@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>USEagleDW</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{ee34174a-ba91-42b1-86ce-4ba3d75be3ee}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>USEagleDW</RootNamespace>
+    <AssemblyName>USEagleDW</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo" />
+    <Folder Include="dim" />
+    <Folder Include="fact" />
+    <Folder Include="Scripts" />
+    <Folder Include="extract" />
+    <Folder Include="etl" />
+    <Folder Include="etl\Stored Procedures" />
+    <Folder Include="extract\Tables" />
+    <Folder Include="fact\Tables" />
+    <Folder Include="dim\Tables" />
+    <Folder Include="dbo\Tables" />
+    <Folder Include="data" />
+    <Folder Include="lookup" />
+    <Folder Include="data\Views" />
+    <Folder Include="lookup\Views" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Scripts\dim.sql" />
+    <Build Include="Scripts\etl.sql" />
+    <Build Include="Scripts\extract.sql" />
+    <Build Include="Scripts\fact.sql" />
+    <Build Include="dbo\Tables\dbo.TransactionSurveyResults.sql" />
+    <Build Include="dim\Tables\dim.AccountDescriptor.sql" />
+    <Build Include="dim\Tables\dim.AccountType.sql" />
+    <Build Include="dim\Tables\dim.Branch.sql" />
+    <Build Include="dim\Tables\dim.Calendar.sql" />
+    <Build Include="dim\Tables\dim.CreditScore.sql" />
+    <Build Include="dim\Tables\dim.GLAccount.sql" />
+    <Build Include="dim\Tables\dim.GLTransactionDetail.sql" />
+    <Build Include="dim\Tables\dim.LoanDescriptor.sql" />
+    <Build Include="dim\Tables\dim.LoanStatus.sql" />
+    <Build Include="dim\Tables\dim.LoanType.sql" />
+    <Build Include="dim\Tables\dim.Member.sql" />
+    <Build Include="dim\Tables\dim.ShareDescriptor.sql" />
+    <Build Include="dim\Tables\dim.Time.sql" />
+    <Build Include="dim\Tables\dim.TransactionCode.sql" />
+    <Build Include="dim\Tables\dim.TransactionDescriptor.sql" />
+    <Build Include="dim\Tables\dim.TransactionType.sql" />
+    <Build Include="dim\Tables\dim.User.sql" />
+    <Build Include="Scripts\data.sql" />
+    <Build Include="Scripts\lookup.sql" />
+    <Build Include="data\Views\data.BalanceSheet.sql" />
+    <Build Include="data\Views\data.Budget.sql" />
+    <Build Include="data\Views\data.CurrentLoan.sql" />
+    <Build Include="data\Views\data.CurrentMember.sql" />
+    <Build Include="data\Views\data.CurrentShare.sql" />
+    <Build Include="data\Views\data.GLTransaction.sql" />
+    <Build Include="data\Views\data.Transaction.sql" />
+    <Build Include="data\Views\data.TransactionSurvey.sql" />
+    <Build Include="etl\Stored Procedures\etl.uspDbo_TransactionSurveyResults_Insert.sql" />
+    <Build Include="etl\Stored Procedures\etl.uspDim_AccountDescriptor_InsertUpdateDelete.sql" />
+    <Build Include="etl\Stored Procedures\etl.uspDim_AccountType_InsertUpdateDelete.sql" />
+    <Build Include="etl\Stored Procedures\etl.uspDim_Branch_InsertUpdateDelete.sql" />
+    <Build Include="etl\Stored Procedures\etl.uspDim_GLAccount_InsertUpdateDelete.sql" />
+    <Build Include="etl\Stored Procedures\etl.uspDim_GLTransactionDetail_InsertUpdateDelete.sql" />
+    <Build Include="etl\Stored Procedures\etl.uspDim_LoanDescriptor_InsertUpdateDelete.sql" />
+    <Build Include="etl\Stored Procedures\etl.uspDim_LoanStatus_InsertUpdateDelete.sql" />
+    <Build Include="etl\Stored Procedures\etl.uspDim_LoanType_InsertUpdateDelete.sql" />
+    <Build Include="etl\Stored Procedures\etl.uspDim_Member_InsertUpdateDelete.sql" />
+    <Build Include="etl\Stored Procedures\etl.uspDim_TransactionDescriptor_InsertUpdateDelete.sql" />
+    <Build Include="etl\Stored Procedures\etl.uspDim_TransactionType_InsertUpdateDelete.sql" />
+    <Build Include="etl\Stored Procedures\etl.uspDim_User_InsertUpdateDelete.sql" />
+    <Build Include="etl\Stored Procedures\etl.uspFact_BalanceSheet_FullRefresh.sql" />
+    <Build Include="etl\Stored Procedures\etl.uspFact_BalanceSheet_PartialRefresh.sql" />
+    <Build Include="etl\Stored Procedures\etl.uspFact_Budget_FullRefresh.sql" />
+    <Build Include="etl\Stored Procedures\etl.uspFact_CurrentLoan_FullRefresh.sql" />
+    <Build Include="etl\Stored Procedures\etl.uspFact_CurrentShare_FullRefresh.sql" />
+    <Build Include="etl\Stored Procedures\etl.uspFact_GLTransaction_FullRefresh.sql" />
+    <Build Include="etl\Stored Procedures\etl.uspFact_Transaction_Delta.sql" />
+    <Build Include="etl\Stored Procedures\etl.uspFact_Transaction_FullRefresh.sql" />
+    <Build Include="etl\Stored Procedures\etl.uspFact_TransactionSurvey_FullRefresh.sql" />
+    <Build Include="extract\Tables\extract.TransactionSurvey.sql" />
+    <Build Include="fact\Tables\fact.BalanceSheet.sql" />
+    <Build Include="fact\Tables\fact.Budget.sql" />
+    <Build Include="fact\Tables\fact.CurrentAccount.sql" />
+    <Build Include="fact\Tables\fact.CurrentLoan.sql" />
+    <Build Include="fact\Tables\fact.CurrentMember.sql" />
+    <Build Include="fact\Tables\fact.CurrentShare.sql" />
+    <Build Include="fact\Tables\fact.GLTransaction.sql" />
+    <Build Include="fact\Tables\fact.LoanHistory.sql" />
+    <Build Include="fact\Tables\fact.Transaction.sql" />
+    <Build Include="fact\Tables\fact.TransactionSurvey.sql" />
+    <Build Include="lookup\Views\lookup.AccountBranch.sql" />
+    <Build Include="lookup\Views\lookup.AccountDescriptor.sql" />
+    <Build Include="lookup\Views\lookup.AccountType.sql" />
+    <Build Include="lookup\Views\lookup.ApprovedByUser.sql" />
+    <Build Include="lookup\Views\lookup.BudgetDate.sql" />
+    <Build Include="lookup\Views\lookup.CreditScore.sql" />
+    <Build Include="lookup\Views\lookup.GLAccount.sql" />
+    <Build Include="lookup\Views\lookup.GLAccountBranch.sql" />
+    <Build Include="lookup\Views\lookup.GLTransactionEffectiveDate.sql" />
+    <Build Include="lookup\Views\lookup.GLTransactionPostingDate.sql" />
+    <Build Include="lookup\Views\lookup.LoanBranch.sql" />
+    <Build Include="lookup\Views\lookup.LoanChargeOffDate.sql" />
+    <Build Include="lookup\Views\lookup.LoanCloseDate.sql" />
+    <Build Include="lookup\Views\lookup.LoanDescriptor.sql" />
+    <Build Include="lookup\Views\lookup.LoanLastPaymentDate.sql" />
+    <Build Include="lookup\Views\lookup.LoanNextPaymentDate.sql" />
+    <Build Include="lookup\Views\lookup.LoanOpenDate.sql" />
+    <Build Include="lookup\Views\lookup.LoanOriginationBranch.sql" />
+    <Build Include="lookup\Views\lookup.LoanScheduledCloseDate.sql" />
+    <Build Include="lookup\Views\lookup.LoanStatus.sql" />
+    <Build Include="lookup\Views\lookup.LoanType.sql" />
+    <Build Include="lookup\Views\lookup.Member.sql" />
+    <Build Include="lookup\Views\lookup.MemberBranch.sql" />
+    <Build Include="lookup\Views\lookup.MemberCloseDate.sql" />
+    <Build Include="lookup\Views\lookup.MemberOpenDate.sql" />
+    <Build Include="lookup\Views\lookup.OriginatedByUser.sql" />
+    <Build Include="lookup\Views\lookup.Period.sql" />
+    <Build Include="lookup\Views\lookup.ShareBranch.sql" />
+    <Build Include="lookup\Views\lookup.ShareChargeOffDate.sql" />
+    <Build Include="lookup\Views\lookup.ShareCloseDate.sql" />
+    <Build Include="lookup\Views\lookup.ShareDescriptor.sql" />
+    <Build Include="lookup\Views\lookup.ShareLastTransactionDate.sql" />
+    <Build Include="lookup\Views\lookup.ShareOpenDate.sql" />
+    <Build Include="lookup\Views\lookup.ShareOriginationBranch.sql" />
+    <Build Include="lookup\Views\lookup.ShareStatus.sql" />
+    <Build Include="lookup\Views\lookup.SurveyDate.sql" />
+    <Build Include="lookup\Views\lookup.TransactionBranch.sql" />
+    <Build Include="lookup\Views\lookup.TransactionDate.sql" />
+    <Build Include="lookup\Views\lookup.TransactionDescriptor.sql" />
+    <Build Include="lookup\Views\lookup.TransactionTime.sql" />
+    <Build Include="lookup\Views\lookup.TransactionType.sql" />
+    <Build Include="lookup\Views\lookup.User.sql" />
+  </ItemGroup>
+</Project>
